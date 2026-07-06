@@ -102,7 +102,7 @@ export default function ComplaintsPage() {
                     <div
                       key={c.id}
                       className={cn(
-                        "rounded-xl border p-3 space-y-2 dark:bg-slate-900 bg-white shadow-sm hover:shadow-md transition-shadow relative group",
+                        "rounded-xl border p-3 space-y-2 bg-card shadow-sm hover:shadow-md transition-shadow relative group",
                         c.priority === "high" && c.status !== "closed" ? "border-red-500/20" : "border-border"
                       )}
                     >

@@ -39,7 +39,7 @@ const activityColors: Record<string, string> = {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="rounded-xl border dark:border-white/10 dark:bg-slate-900/95 bg-white/95 backdrop-blur-xl px-3 py-2.5 shadow-xl text-xs">
+      <div className="rounded-xl border border-border bg-card/95 backdrop-blur-xl px-3 py-2.5 shadow-xl text-xs">
         <p className="font-semibold text-foreground mb-1">{label}</p>
         {payload.map((p: any) => (
           <div key={p.name} className="flex items-center gap-2">
