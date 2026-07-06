@@ -191,9 +191,9 @@ export default function LandingPage() {
   const [statsVisible, setStatsVisible] = useState(false);
 
   return (
-    <div className="min-h-screen dark:bg-[hsl(222,47%,6%)] bg-slate-50 overflow-hidden">
+    <div className="min-h-screen dark:bg-black bg-slate-50 overflow-hidden">
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 border-b dark:border-white/5 border-black/5 dark:bg-[hsl(222,47%,6%)]/80 bg-white/80 backdrop-blur-xl">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 border-b dark:border-white/5 border-black/5 dark:bg-black/80 bg-white/80 backdrop-blur-xl">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-xl gradient-brand flex items-center justify-center">
             <Activity className="w-4 h-4 text-white" />

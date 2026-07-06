@@ -23,7 +23,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <div className="flex h-screen overflow-hidden dark:bg-[hsl(222,47%,6%)] bg-slate-50">
+    <div className="flex h-screen overflow-hidden dark:bg-background bg-slate-50">
       <Sidebar
         collapsed={collapsed}
         onToggle={() => setCollapsed(!collapsed)}

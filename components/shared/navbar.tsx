@@ -64,7 +64,7 @@ export function Navbar({ onCommandPalette, onMenuToggle }: NavbarProps) {
 
   return (
     <>
-      <header className="h-16 flex items-center gap-4 px-6 border-b dark:border-white/8 border-black/5 dark:bg-[hsl(222,47%,7%)]/80 bg-white/80 backdrop-blur-xl sticky top-0 z-30">
+      <header className="h-16 flex items-center gap-4 px-6 border-b dark:border-white/8 border-black/5 dark:bg-black/80 bg-white/80 backdrop-blur-xl sticky top-0 z-30">
         {/* Mobile Hamburger Trigger */}
         <button
           onClick={onMenuToggle}
