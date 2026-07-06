@@ -93,7 +93,7 @@ export function Sidebar({ collapsed = false, onToggle, mobileOpen = false, onMob
         animate={{ width: collapsed ? 72 : 240 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className={cn(
-          "flex flex-col h-screen border-r dark:border-white/8 border-black/5 dark:bg-black bg-white/80 backdrop-blur-xl",
+          "flex flex-col h-screen border-r border-border bg-card backdrop-blur-xl",
           "fixed lg:relative inset-y-0 left-0 -translate-x-full lg:translate-x-0 transition-transform lg:transition-none duration-300 z-50 lg:z-20",
           mobileOpen && "translate-x-0"
         )}

@@ -33,7 +33,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen dark:bg-black bg-slate-50 flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground flex items-center justify-center relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 gradient-hero" />
       <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-cyan-500/5 blur-3xl animate-pulse" />

@@ -191,9 +191,9 @@ export default function LandingPage() {
   const [statsVisible, setStatsVisible] = useState(false);
 
   return (
-    <div className="min-h-screen dark:bg-black bg-slate-50 overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-hidden">
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 border-b dark:border-white/5 border-black/5 dark:bg-black/80 bg-white/80 backdrop-blur-xl">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 border-b border-border bg-background/80 backdrop-blur-xl">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-xl gradient-brand flex items-center justify-center">
             <Activity className="w-4 h-4 text-white" />
@@ -365,7 +365,7 @@ export default function LandingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.05 * i }}
-                  className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6 card-hover group"
+                  className="rounded-2xl border border-border bg-card p-6 card-hover group"
                 >
                   <div className={cn("w-10 h-10 rounded-xl border flex items-center justify-center mb-4", feature.bg)}>
                     <Icon className={cn("w-5 h-5", feature.color)} />
@@ -380,7 +380,7 @@ export default function LandingPage() {
       </section>
 
       {/* AI Architecture Section */}
-      <section className="py-24 px-6 md:px-12 dark:bg-white/[0.02] bg-black/[0.01] border-y dark:border-white/5 border-black/5">
+      <section className="py-24 px-6 md:px-12 bg-muted/20 border-y border-border">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -449,7 +449,7 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * i }}
-                className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+                className="rounded-2xl border border-border bg-card p-6"
               >
                 <div className="flex mb-3">
                   {"★".repeat(t.rating).split("").map((s, j) => (
@@ -468,7 +468,7 @@ export default function LandingPage() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-24 px-6 md:px-12 dark:bg-white/[0.02] bg-black/[0.01] border-y dark:border-white/5 border-black/5">
+      <section id="pricing" className="py-24 px-6 md:px-12 bg-muted/20 border-y border-border">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -492,8 +492,8 @@ export default function LandingPage() {
                 className={cn(
                   "rounded-2xl border p-6 relative",
                   plan.highlighted
-                    ? "border-cyan-500/30 dark:bg-cyan-500/5 bg-cyan-50/50 shadow-xl"
-                    : "dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white"
+                    ? "border-cyan-500/30 bg-cyan-500/[0.04] shadow-xl"
+                    : "border-border bg-card"
                 )}
               >
                 {plan.highlighted && (
@@ -589,7 +589,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t dark:border-white/8 border-black/5 py-12 px-6 md:px-12">
+      <footer className="border-t border-border py-12 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2">
