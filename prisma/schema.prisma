@@ -1,0 +1,396 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================================
+// ORGANIZATIONS & MULTI-TENANCY
+// ============================================================================
+
+model Organization {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  logo        String?
+  plan        Plan     @default(STARTER)
+  customDomain String?
+  whitelabel  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  clinics      Clinic[]
+  users        User[]
+  campaigns    Campaign[]
+  patients     Patient[]
+  analytics    Analytics[]
+  aiInsights   AIInsight[]
+  auditLogs    AuditLog[]
+  competitors  Competitor[]
+}
+
+model Clinic {
+  id             String   @id @default(cuid())
+  organizationId String
+  name           String
+  address        String?
+  phone          String?
+  website        String?
+  timezone       String   @default("America/Chicago")
+  googlePlaceId  String?
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  users        User[]
+  patients     Patient[]
+  reviews      Review[]
+  feedback     Feedback[]
+  campaigns    Campaign[]
+  appointments Appointment[]
+  analytics    Analytics[]
+}
+
+// ============================================================================
+// USERS & ROLES
+// ============================================================================
+
+model User {
+  id             String   @id @default(cuid())
+  organizationId String
+  clinicId       String?
+  email          String   @unique
+  name           String
+  avatar         String?
+  role           Role     @default(VIEWER)
+  isActive       Boolean  @default(true)
+  lastLoginAt    DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  clinic       Clinic?      @relation(fields: [clinicId], references: [id])
+  auditLogs    AuditLog[]
+}
+
+// ============================================================================
+// PATIENTS
+// ============================================================================
+
+model Patient {
+  id             String   @id @default(cuid())
+  organizationId String
+  clinicId       String
+  externalId     String?  // EHR patient ID
+  firstName      String
+  lastName       String
+  email          String?
+  phone          String?
+  dateOfBirth    DateTime?
+  preferredChannel Channel @default(SMS)
+  optInSMS       Boolean  @default(true)
+  optInEmail     Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  organization Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  clinic       Clinic        @relation(fields: [clinicId], references: [id])
+  appointments Appointment[]
+  feedback     Feedback[]
+  messages     Message[]
+  reviews      Review[]
+}
+
+// ============================================================================
+// APPOINTMENTS
+// ============================================================================
+
+model Appointment {
+  id            String            @id @default(cuid())
+  patientId     String
+  clinicId      String
+  providerId    String?
+  providerName  String?
+  appointmentAt DateTime
+  type          String?
+  status        AppointmentStatus @default(SCHEDULED)
+  notes         String?
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+
+  patient  Patient    @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  clinic   Clinic     @relation(fields: [clinicId], references: [id])
+  feedback Feedback[]
+}
+
+// ============================================================================
+// FEEDBACK & REVIEWS
+// ============================================================================
+
+model Feedback {
+  id             String          @id @default(cuid())
+  patientId      String
+  clinicId       String
+  appointmentId  String?
+  npsScore       Int?            // 0-10
+  waitTime       Int?            // 1-5
+  staffScore     Int?            // 1-5
+  doctorScore    Int?            // 1-5
+  communication  Int?            // 1-5
+  billing        Int?            // 1-5
+  facility       Int?            // 1-5
+  overallScore   Int?            // 0-100
+  comments       String?
+  sentiment      Sentiment?
+  aiAnalysis     Json?
+  routedTo       FeedbackRoute?
+  isPublic       Boolean         @default(false)
+  createdAt      DateTime        @default(now())
+
+  patient     Patient      @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  clinic      Clinic       @relation(fields: [clinicId], references: [id])
+  appointment Appointment? @relation(fields: [appointmentId], references: [id])
+}
+
+model Review {
+  id            String         @id @default(cuid())
+  patientId     String?
+  clinicId      String
+  platform      ReviewPlatform
+  externalId    String?
+  rating        Int            // 1-5
+  content       String?
+  authorName    String?
+  publishedAt   DateTime?
+  responded     Boolean        @default(false)
+  response      String?
+  respondedAt   DateTime?
+  aiDraftResponse String?
+  sentiment     Sentiment?
+  isVerified    Boolean        @default(false)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  patient Patient? @relation(fields: [patientId], references: [id])
+  clinic  Clinic   @relation(fields: [clinicId], references: [id])
+}
+
+// ============================================================================
+// CAMPAIGNS & MESSAGES
+// ============================================================================
+
+model Campaign {
+  id             String         @id @default(cuid())
+  organizationId String
+  clinicId       String?
+  name           String
+  type           CampaignType
+  status         CampaignStatus @default(DRAFT)
+  trigger        String?
+  channels       Channel[]
+  targetSegment  String?
+  templateSMS    String?
+  templateEmail  String?
+  delayHours     Int            @default(24)
+  isActive       Boolean        @default(true)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  clinic       Clinic?      @relation(fields: [clinicId], references: [id])
+  messages     Message[]
+}
+
+model Message {
+  id         String        @id @default(cuid())
+  campaignId String?
+  patientId  String
+  channel    Channel
+  status     MessageStatus @default(PENDING)
+  content    String
+  sentAt     DateTime?
+  openedAt   DateTime?
+  clickedAt  DateTime?
+  error      String?
+  createdAt  DateTime      @default(now())
+
+  campaign Campaign? @relation(fields: [campaignId], references: [id])
+  patient  Patient   @relation(fields: [patientId], references: [id], onDelete: Cascade)
+}
+
+// ============================================================================
+// ANALYTICS & AI
+// ============================================================================
+
+model Analytics {
+  id             String   @id @default(cuid())
+  organizationId String
+  clinicId       String?
+  date           DateTime @db.Date
+  metric         String
+  value          Float
+  metadata       Json?
+  createdAt      DateTime @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  clinic       Clinic?      @relation(fields: [clinicId], references: [id])
+
+  @@unique([organizationId, clinicId, date, metric])
+}
+
+model AIInsight {
+  id             String      @id @default(cuid())
+  organizationId String
+  type           InsightType
+  priority       Priority    @default(MEDIUM)
+  title          String
+  description    String
+  action         String?
+  impact         String?
+  confidence     Int?        // 0-100
+  agent          String?
+  isRead         Boolean     @default(false)
+  isDismissed    Boolean     @default(false)
+  expiresAt      DateTime?
+  createdAt      DateTime    @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+}
+
+model Competitor {
+  id             String   @id @default(cuid())
+  organizationId String
+  name           String
+  address        String?
+  googlePlaceId  String?
+  website        String?
+  isActive       Boolean  @default(true)
+  lastSyncAt     DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+}
+
+model AuditLog {
+  id             String   @id @default(cuid())
+  organizationId String
+  userId         String?
+  action         String
+  resource       String?
+  metadata       Json?
+  ipAddress      String?
+  userAgent      String?
+  createdAt      DateTime @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  user         User?        @relation(fields: [userId], references: [id])
+}
+
+// ============================================================================
+// ENUMS
+// ============================================================================
+
+enum Plan {
+  STARTER
+  PROFESSIONAL
+  ENTERPRISE
+}
+
+enum Role {
+  SUPER_ADMIN
+  ORG_ADMIN
+  CLINIC_MANAGER
+  STAFF
+  VIEWER
+}
+
+enum Channel {
+  SMS
+  EMAIL
+  WHATSAPP
+  IN_APP
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum Sentiment {
+  VERY_POSITIVE
+  POSITIVE
+  NEUTRAL
+  NEGATIVE
+  VERY_NEGATIVE
+}
+
+enum FeedbackRoute {
+  GOOGLE_REVIEW
+  HEALTHGRADES_REVIEW
+  FACEBOOK_REVIEW
+  YELP_REVIEW
+  PRIVATE_FORM
+  INTERNAL
+}
+
+enum ReviewPlatform {
+  GOOGLE
+  HEALTHGRADES
+  FACEBOOK
+  YELP
+  INTERNAL
+}
+
+enum CampaignType {
+  REVIEW_REQUEST
+  FEEDBACK
+  REFERRAL
+  REACTIVATION
+  SATISFACTION
+}
+
+enum CampaignStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  COMPLETED
+  ARCHIVED
+}
+
+enum MessageStatus {
+  PENDING
+  SENT
+  DELIVERED
+  OPENED
+  CLICKED
+  FAILED
+  BOUNCED
+}
+
+enum InsightType {
+  OPPORTUNITY
+  WARNING
+  GROWTH
+  COMPETITOR
+  REFERRAL
+  FORECAST
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
