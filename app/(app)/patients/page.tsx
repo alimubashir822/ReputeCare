@@ -48,7 +48,7 @@ export default function PatientsPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 * i }}
-              className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-4"
+              className="rounded-2xl border border-border bg-card p-4"
             >
               <div className="flex items-center gap-2 mb-1">
                 <Icon className={cn("w-4 h-4", stat.color)} />
@@ -68,7 +68,7 @@ export default function PatientsPage() {
             value={query}
             onChange={e => setQuery(e.target.value)}
             placeholder="Search patients or providers..."
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl border dark:border-white/8 border-black/5 dark:bg-white/5 bg-black/5 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-cyan-500/30 transition-colors"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-border bg-muted/30 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-cyan-500/30 transition-colors"
           />
         </div>
         <div className="flex gap-1 p-1 rounded-xl bg-muted">
@@ -96,7 +96,7 @@ export default function PatientsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.04 * i }}
             onClick={() => setSelectedPatient(patient)}
-            className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-5 card-hover cursor-pointer group"
+            className="rounded-2xl border border-border bg-card p-5 card-hover cursor-pointer group"
           >
             {/* Avatar + Name */}
             <div className="flex items-center gap-3 mb-4">
@@ -155,7 +155,7 @@ export default function PatientsPage() {
             </div>
 
             {/* Metrics */}
-            <div className="grid grid-cols-3 gap-2 text-center pt-3 border-t dark:border-white/5 border-black/5">
+            <div className="grid grid-cols-3 gap-2 text-center pt-3 border-t border-border">
               <div>
                 <p className="text-xs font-bold text-foreground">{patient.npsScore}</p>
                 <p className="text-[10px] text-muted-foreground">NPS</p>
@@ -205,10 +205,10 @@ export default function PatientsPage() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="fixed inset-y-0 md:inset-y-10 right-0 left-0 md:left-auto md:w-[480px] md:right-10 bg-card border dark:border-white/10 border-black/10 rounded-none md:rounded-3xl shadow-2xl z-50 flex flex-col overflow-hidden"
+              className="fixed inset-y-0 md:inset-y-10 right-0 left-0 md:left-auto md:w-[480px] md:right-10 bg-card border border-border rounded-none md:rounded-3xl shadow-2xl z-50 flex flex-col overflow-hidden"
             >
               {/* Header */}
-              <div className="p-5 border-b dark:border-white/8 border-black/5 flex items-center justify-between bg-black/5">
+              <div className="p-5 border-b border-border flex items-center justify-between bg-black/5">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl gradient-brand flex items-center justify-center text-white text-sm font-bold">
                     {selectedPatient.name.split(" ").map((n: string) => n[0]).join("")}
@@ -227,7 +227,7 @@ export default function PatientsPage() {
               </div>
 
               {/* Tab Selector */}
-              <div className="flex px-4 py-2 border-b dark:border-white/5 border-black/5 bg-black/10 gap-1">
+              <div className="flex px-4 py-2 border-b border-border bg-black/10 gap-1">
                 {[
                   { id: "journey", label: "Timeline" },
                   { id: "graph", label: "Experience Graph" },
@@ -256,7 +256,7 @@ export default function PatientsPage() {
                     <div>
                       <h4 className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-3">AI Experience Scorecard</h4>
                       <div className="grid grid-cols-3 gap-2 text-center">
-                        <div className="rounded-xl border dark:border-white/5 border-black/5 dark:bg-white/[0.01] bg-black/[0.01] p-2.5">
+                        <div className="rounded-xl border border-border bg-card p-2.5">
                           <p className="text-[9px] text-muted-foreground">Satisfaction Score</p>
                           <p className={cn(
                             "text-lg font-black mt-0.5",
@@ -266,11 +266,11 @@ export default function PatientsPage() {
                             {selectedPatient.satisfactionScore}%
                           </p>
                         </div>
-                        <div className="rounded-xl border dark:border-white/5 border-black/5 dark:bg-white/[0.01] bg-black/[0.01] p-2.5">
+                        <div className="rounded-xl border border-border bg-card p-2.5">
                           <p className="text-[9px] text-muted-foreground">Referral Likely</p>
                           <p className="text-lg font-black text-violet-400 mt-0.5">{selectedPatient.referralLikelihood}%</p>
                         </div>
-                        <div className="rounded-xl border dark:border-white/5 border-black/5 dark:bg-white/[0.01] bg-black/[0.01] p-2.5">
+                        <div className="rounded-xl border border-border bg-card p-2.5">
                           <p className="text-[9px] text-muted-foreground">Segment</p>
                           <span className={cn(
                             "text-[10px] font-bold px-2 py-0.5 rounded-full border inline-block mt-1.5 capitalize",
@@ -285,7 +285,7 @@ export default function PatientsPage() {
                     {/* Timeline */}
                     <div>
                       <h4 className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-4">Patient Experience Timeline</h4>
-                      <div className="relative pl-6 space-y-4 border-l dark:border-white/5 border-black/5 ml-2.5">
+                      <div className="relative pl-6 space-y-4 border-l border-border ml-2.5">
                         {[
                           { step: "Online Booking", status: "completed", time: "3 days prior", info: "Booked via website widget" },
                           { step: "Reminder SMS", status: "completed", time: "24h prior", info: "Confirmed via auto-reply" },
@@ -351,7 +351,7 @@ export default function PatientsPage() {
                           <button className="flex-1 py-2 rounded-xl gradient-brand text-white text-[10px] font-semibold hover:opacity-90 transition-opacity">
                             Trigger Manager Call
                           </button>
-                          <button className="py-2 px-3 rounded-xl border dark:border-white/5 border-black/5 text-[10px] text-muted-foreground hover:text-foreground hover:bg-white/5">
+                          <button className="py-2 px-3 rounded-xl border border-border text-[10px] text-muted-foreground hover:text-foreground hover:bg-white/5">
                             Ignore
                           </button>
                         </div>
@@ -368,7 +368,7 @@ export default function PatientsPage() {
                     </div>
 
                     {/* Interactive Node Graph */}
-                    <div className="relative h-64 border dark:border-white/5 border-black/5 rounded-2xl dark:bg-black/20 bg-slate-100/50 flex items-center justify-center overflow-hidden">
+                    <div className="relative h-64 border border-border rounded-2xl dark:bg-black/20 bg-slate-100/50 flex items-center justify-center overflow-hidden">
                       <svg className="absolute inset-0 w-full h-full">
                         {/* Connection Lines from Center (220, 120) */}
                         <line x1="220" y1="120" x2="220" y2="40" stroke="#64748b" strokeWidth="1.5" strokeDasharray="3 3" />
@@ -458,7 +458,7 @@ export default function PatientsPage() {
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-xl border dark:border-white/5 border-black/5 dark:bg-white/[0.01] bg-black/[0.01]">
+                    <div className="p-4 rounded-xl border border-border bg-card">
                       <h5 className="text-[10px] font-bold text-foreground mb-1">AI Experience Prediction Insight</h5>
                       <p className="text-[9px] text-muted-foreground leading-relaxed">
                         Relationships show strong connection between wait times, low satisfaction score and private route alerts. Restoring doctor consult quality benchmarks may offset wait frustrations by 18%.
@@ -472,12 +472,12 @@ export default function PatientsPage() {
                     {/* EHR Medical record summary */}
                     <div className="space-y-2">
                       <h4 className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">EHR Medical History</h4>
-                      <div className="p-3 rounded-xl border dark:border-white/5 border-black/5 space-y-2 text-xs">
-                        <div className="flex justify-between border-b dark:border-white/5 border-black/5 pb-1">
+                      <div className="p-3 rounded-xl border border-border space-y-2 text-xs">
+                        <div className="flex justify-between border-b border-border pb-1">
                           <span className="text-muted-foreground">Primary Diagnosis</span>
                           <span className="font-semibold text-foreground">Annual Wellness Intake</span>
                         </div>
-                        <div className="flex justify-between border-b dark:border-white/5 border-black/5 pb-1">
+                        <div className="flex justify-between border-b border-border pb-1">
                           <span className="text-muted-foreground">Treatments Logged</span>
                           <span className="font-semibold text-foreground">Consultation, BP Intake</span>
                         </div>
@@ -491,7 +491,7 @@ export default function PatientsPage() {
                     {/* Payments */}
                     <div className="space-y-2">
                       <h4 className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Billing & Insurance Ledger</h4>
-                      <div className="p-3 rounded-xl border dark:border-white/5 border-black/5 space-y-2 text-xs">
+                      <div className="p-3 rounded-xl border border-border space-y-2 text-xs">
                         <div className="flex justify-between items-center text-[10px]">
                           <div>
                             <p className="font-semibold text-foreground">Co-pay Settlement</p>
@@ -505,12 +505,12 @@ export default function PatientsPage() {
                     {/* Messages Logs */}
                     <div className="space-y-2">
                       <h4 className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Communication Logs</h4>
-                      <div className="p-3 rounded-xl border dark:border-white/5 border-black/5 space-y-2">
+                      <div className="p-3 rounded-xl border border-border space-y-2">
                         {[
                           { channel: "SMS", date: "Today, 2:10 PM", msg: "Satisfaction survey sent successfully" },
                           { channel: "Email", date: "Yesterday, 9:00 AM", msg: "Appointment check-in reminder delivered" },
                         ].map((log, index) => (
-                          <div key={index} className="flex justify-between text-[10px] items-start border-b dark:border-white/5 border-black/5 pb-1.5 last:border-0 last:pb-0">
+                          <div key={index} className="flex justify-between text-[10px] items-start border-b border-border pb-1.5 last:border-0 last:pb-0">
                             <div>
                               <p className="font-semibold text-foreground">{log.channel} Notification</p>
                               <p className="text-muted-foreground">{log.msg}</p>
@@ -525,10 +525,10 @@ export default function PatientsPage() {
               </div>
 
               {/* Footer */}
-              <div className="p-4 border-t dark:border-white/8 border-black/5 flex gap-2">
+              <div className="p-4 border-t border-border flex gap-2">
                 <button
                   onClick={() => { setSelectedPatient(null); setActiveModalTab("journey"); }}
-                  className="flex-1 py-2.5 rounded-xl border dark:border-white/10 border-black/10 text-xs font-semibold text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
+                  className="flex-1 py-2.5 rounded-xl border border-border text-xs font-semibold text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
                 >
                   Close Profile
                 </button>

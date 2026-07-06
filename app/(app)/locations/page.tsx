@@ -26,7 +26,7 @@ export default function LocationsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 * i }}
-            className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6 card-hover cursor-pointer group relative overflow-hidden"
+            className="rounded-2xl border border-border bg-card p-6 card-hover cursor-pointer group relative overflow-hidden"
           >
             <div className="absolute inset-0 gradient-hero opacity-30 pointer-events-none" />
 
@@ -87,7 +87,7 @@ export default function LocationsPage() {
               </div>
 
               {/* Footer Stats */}
-              <div className="grid grid-cols-3 gap-2 text-center pt-4 border-t dark:border-white/5 border-black/5">
+              <div className="grid grid-cols-3 gap-2 text-center pt-4 border-t border-border">
                 <div>
                   <p className="text-xs font-bold text-foreground">{loc.providers}</p>
                   <p className="text-[10px] text-muted-foreground">Providers</p>
@@ -120,7 +120,7 @@ export default function LocationsPage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35 }}
-        className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+        className="rounded-2xl border border-border bg-card p-6"
       >
         <h3 className="text-sm font-semibold text-foreground mb-4">Location Comparison</h3>
         <div className="overflow-x-auto">

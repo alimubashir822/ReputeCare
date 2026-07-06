@@ -42,7 +42,7 @@ export default function FeedbackPage() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="col-span-12 lg:col-span-6 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6 flex flex-col justify-between"
+          className="col-span-12 lg:col-span-6 rounded-2xl border border-border bg-card p-6 flex flex-col justify-between"
         >
           <div>
             <h3 className="text-sm font-semibold text-foreground mb-1">Category Performance</h3>
@@ -71,7 +71,7 @@ export default function FeedbackPage() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
-          className="col-span-12 lg:col-span-6 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 lg:col-span-6 rounded-2xl border border-border bg-card p-6"
         >
           <div className="mb-4">
             <h3 className="text-sm font-semibold text-foreground mb-1">AI Department Scorecards</h3>
@@ -86,7 +86,7 @@ export default function FeedbackPage() {
                   "p-2.5 rounded-xl border flex items-center justify-between text-xs transition-colors",
                   dept.alert
                     ? "bg-red-500/5 border-red-500/25 dark:bg-red-500/5 border-red-500/15"
-                    : "dark:bg-white/[0.01] bg-black/[0.01] dark:border-white/5 border-black/5"
+                    : "dark:bg-white/[0.01] bg-black/[0.01] border-border"
                 )}
               >
                 <div className="min-w-0">
@@ -128,7 +128,7 @@ export default function FeedbackPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="col-span-12 md:col-span-5 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 md:col-span-5 rounded-2xl border border-border bg-card p-6"
         >
           <h3 className="text-sm font-semibold text-foreground mb-1">NPS Score</h3>
           <p className="text-xs text-muted-foreground mb-4">Net Promoter Score · Last 30 days</p>
@@ -168,7 +168,7 @@ export default function FeedbackPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25 }}
-          className="col-span-12 md:col-span-7 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 md:col-span-7 rounded-2xl border border-border bg-card p-6"
         >
           <h3 className="text-sm font-semibold text-foreground mb-1">Feedback → Review Funnel</h3>
           <p className="text-xs text-muted-foreground mb-4">Conversion from feedback to public review</p>
@@ -204,7 +204,7 @@ export default function FeedbackPage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+        className="rounded-2xl border border-border bg-card p-6"
       >
         <div className="flex items-center justify-between mb-4">
           <div className="flex gap-1 p-1 rounded-xl bg-muted">
@@ -230,7 +230,7 @@ export default function FeedbackPage() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 * i }}
-              className="p-4 rounded-2xl border dark:border-white/5 border-black/5 dark:bg-white/[0.02] bg-black/[0.02]"
+              className="p-4 rounded-2xl border border-border bg-card"
             >
               <div className="flex items-start gap-4">
                 <div className="w-9 h-9 rounded-full gradient-brand flex items-center justify-center text-white text-xs font-bold flex-shrink-0">

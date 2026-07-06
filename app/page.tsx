@@ -303,7 +303,7 @@ export default function LandingPage() {
             ].map((card, i) => (
               <div
                 key={card.label}
-                className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.04] bg-white/80 backdrop-blur-xl p-4 text-center"
+                className="rounded-2xl border border-border dark:bg-white/[0.04] bg-white/80 backdrop-blur-xl p-4 text-center"
               >
                 <p className={cn("text-xl font-black", card.color)}>{card.value}</p>
                 <p className="text-xs text-muted-foreground mt-1">{card.label}</p>
@@ -314,7 +314,7 @@ export default function LandingPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-6 md:px-12 border-y dark:border-white/5 border-black/5 dark:bg-white/[0.02] bg-black/[0.01]">
+      <section className="py-16 px-6 md:px-12 border-y border-border dark:bg-white/[0.02] bg-black/[0.01]">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 16 }}

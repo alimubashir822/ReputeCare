@@ -62,7 +62,7 @@ export default function SentimentPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 * i }}
-            className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-4 text-center"
+            className="rounded-2xl border border-border bg-card p-4 text-center"
           >
             <div className="w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center" style={{ background: `${item.color}20`, border: `1px solid ${item.color}30` }}>
               <div className="w-4 h-4 rounded-full" style={{ background: item.color }} />
@@ -80,7 +80,7 @@ export default function SentimentPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="col-span-12 lg:col-span-8 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 lg:col-span-8 rounded-2xl border border-border bg-card p-6"
         >
           <div className="flex items-center gap-2 mb-1">
             <TrendingUp className="w-4 h-4 text-emerald-400" />
@@ -122,7 +122,7 @@ export default function SentimentPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25 }}
-          className="col-span-12 lg:col-span-4 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 lg:col-span-4 rounded-2xl border border-border bg-card p-6"
         >
           <div className="flex items-center gap-2 mb-4">
             <AlertTriangle className="w-4 h-4 text-orange-400" />
@@ -162,7 +162,7 @@ export default function SentimentPage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35 }}
-        className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+        className="rounded-2xl border border-border bg-card p-6"
       >
         <div className="flex items-center gap-2 mb-2">
           <MessageSquare className="w-4 h-4 text-ai-400" />

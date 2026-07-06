@@ -63,7 +63,7 @@ export default function ComplaintsPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 * i }}
-            className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-4"
+            className="rounded-2xl border border-border bg-card p-4"
           >
             <p className="text-xs text-muted-foreground">{stat.label}</p>
             <p className={cn("text-2xl font-bold mt-1", stat.color)}>{stat.value}</p>
@@ -81,7 +81,7 @@ export default function ComplaintsPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 * colIdx }}
-              className="flex flex-col h-[600px] rounded-2xl border dark:border-white/5 border-black/5 dark:bg-white/[0.01] bg-black/[0.01] overflow-hidden"
+              className="flex flex-col h-[600px] rounded-2xl border border-border bg-card overflow-hidden"
             >
               {/* Column Header */}
               <div className={cn("px-4 py-3 border-b font-bold text-xs flex items-center justify-between", col.color)}>
@@ -103,7 +103,7 @@ export default function ComplaintsPage() {
                       key={c.id}
                       className={cn(
                         "rounded-xl border p-3 space-y-2 dark:bg-slate-900 bg-white shadow-sm hover:shadow-md transition-shadow relative group",
-                        c.priority === "high" && c.status !== "closed" ? "border-red-500/20" : "dark:border-white/5 border-black/5"
+                        c.priority === "high" && c.status !== "closed" ? "border-red-500/20" : "border-border"
                       )}
                     >
                       <div className="flex items-start justify-between gap-2">
@@ -133,7 +133,7 @@ export default function ComplaintsPage() {
                       )}
 
                       {/* Action trigger states to move status */}
-                      <div className="pt-2 flex items-center justify-between border-t dark:border-white/5 border-black/5 mt-2">
+                      <div className="pt-2 flex items-center justify-between border-t border-border mt-2">
                         <span className="text-[8px] text-muted-foreground italic">Update:</span>
                         <div className="flex gap-1">
                           {colIdx < columns.length - 1 && (

@@ -59,7 +59,7 @@ export default function ReviewsRespondPage() {
                 "p-4 rounded-2xl border cursor-pointer transition-all",
                 selectedReview.id === review.id
                   ? "border-cyan-500/30 dark:bg-cyan-500/5 bg-cyan-50/50"
-                  : "dark:border-white/8 border-black/5 dark:bg-white/[0.02] bg-white hover:border-white/12"
+                  : "border-border bg-card hover:border-white/12"
               )}
             >
               <div className="flex items-start gap-3">
@@ -95,7 +95,7 @@ export default function ReviewsRespondPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6 sticky top-6"
+            className="rounded-2xl border border-border bg-card p-6 sticky top-6"
           >
             {/* Review Header */}
             <div className="flex items-center justify-between mb-4">
@@ -118,7 +118,7 @@ export default function ReviewsRespondPage() {
             </div>
 
             {/* Original Review */}
-            <div className="rounded-xl border dark:border-white/8 border-black/5 dark:bg-white/[0.02] bg-black/[0.02] p-4 mb-4">
+            <div className="rounded-xl border border-border dark:bg-white/[0.02] bg-black/[0.02] p-4 mb-4">
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Patient Review</p>
               <p className="text-sm text-foreground leading-relaxed">&ldquo;{selectedReview.content}&rdquo;</p>
               <p className="text-xs text-muted-foreground mt-2">{getRelativeTime(selectedReview.date)}</p>
@@ -157,7 +157,7 @@ export default function ReviewsRespondPage() {
                 <CheckCircle className="w-4 h-4" />
                 Approve & Post Response
               </button>
-              <button className="px-4 py-2.5 rounded-xl border dark:border-white/8 border-black/5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-all">
+              <button className="px-4 py-2.5 rounded-xl border border-border text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-all">
                 Skip
               </button>
             </div>

@@ -54,7 +54,7 @@ export default function CompetitorsPage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15 }}
-        className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+        className="rounded-2xl border border-border bg-card p-6"
       >
         <h3 className="text-sm font-semibold text-foreground mb-4">Google Rating Comparison</h3>
         <ResponsiveContainer width="100%" height={200}>
@@ -83,7 +83,7 @@ export default function CompetitorsPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 * i }}
-            className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-5 group"
+            className="rounded-2xl border border-border bg-card p-5 group"
           >
             <div className="flex items-start justify-between mb-4">
               <div>
@@ -101,11 +101,11 @@ export default function CompetitorsPage() {
             </div>
 
             <div className="grid grid-cols-2 gap-3 mb-4">
-              <div className="text-center rounded-xl dark:bg-white/3 bg-black/3 border dark:border-white/5 border-black/5 py-3">
+              <div className="text-center rounded-xl bg-muted/40 border border-border py-3">
                 <p className="text-2xl font-bold text-yellow-400">{comp.googleRating}★</p>
                 <p className="text-xs text-muted-foreground mt-0.5">Google</p>
               </div>
-              <div className="text-center rounded-xl dark:bg-white/3 bg-black/3 border dark:border-white/5 border-black/5 py-3">
+              <div className="text-center rounded-xl bg-muted/40 border border-border py-3">
                 <p className="text-2xl font-bold text-cyan-400">{comp.googleReviews.toLocaleString()}</p>
                 <p className="text-xs text-muted-foreground mt-0.5">Reviews</p>
               </div>

@@ -123,7 +123,7 @@ export default function SimulatorPage() {
         <motion.div
           initial={{ opacity: 0, x: -16 }}
           animate={{ opacity: 1, x: 0 }}
-          className="col-span-12 lg:col-span-5 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6 space-y-6"
+          className="col-span-12 lg:col-span-5 rounded-2xl border border-border bg-card p-6 space-y-6"
         >
           <div>
             <h3 className="text-sm font-bold text-foreground mb-1">Operational Adjustments</h3>
@@ -177,7 +177,7 @@ export default function SimulatorPage() {
             </div>
           </div>
 
-          <hr className="dark:border-white/5 border-black/5" />
+          <hr className="border-border" />
 
           {/* Toggles */}
           <div className="space-y-4">
@@ -243,7 +243,7 @@ export default function SimulatorPage() {
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-5 flex flex-col justify-between"
+              className="rounded-2xl border border-border bg-card p-5 flex flex-col justify-between"
             >
               <div className="flex justify-between items-start mb-2">
                 <p className="text-xs text-muted-foreground">Predicted Star Rating</p>
@@ -266,7 +266,7 @@ export default function SimulatorPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 }}
-              className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-5 flex flex-col justify-between"
+              className="rounded-2xl border border-border bg-card p-5 flex flex-col justify-between"
             >
               <div className="flex justify-between items-start mb-2">
                 <p className="text-xs text-muted-foreground">Projected Satisfaction</p>
@@ -289,7 +289,7 @@ export default function SimulatorPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-5 flex flex-col justify-between"
+              className="rounded-2xl border border-border bg-card p-5 flex flex-col justify-between"
             >
               <div className="flex justify-between items-start mb-2">
                 <p className="text-xs text-muted-foreground">Annual Practice Revenue</p>
@@ -311,7 +311,7 @@ export default function SimulatorPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
-            className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+            className="rounded-2xl border border-border bg-card p-6"
           >
             <div className="mb-6">
               <h3 className="text-sm font-semibold text-foreground">Current Baseline vs. Simulated Plan</h3>
@@ -341,7 +341,7 @@ export default function SimulatorPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+            className="rounded-2xl border border-border bg-card p-6"
           >
             <div className="flex items-center gap-2 mb-3">
               <Zap className="w-4 h-4 text-ai-400" />

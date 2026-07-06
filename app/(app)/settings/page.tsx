@@ -91,7 +91,7 @@ export default function SettingsPage() {
                 { label: "Data Encryption at Rest", enabled: true },
                 { label: "BAA Agreement Signed", enabled: true },
               ].map((item) => (
-                <div key={item.label} className="flex items-center justify-between py-2 border-b dark:border-white/5 border-black/5 last:border-0">
+                <div key={item.label} className="flex items-center justify-between py-2 border-b border-border last:border-0">
                   <span className="text-sm text-foreground">{item.label}</span>
                   <div className={cn(
                     "flex items-center gap-1.5 text-xs font-semibold px-2 py-1 rounded-full",
@@ -124,7 +124,7 @@ export default function SettingsPage() {
                   initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 * i }}
-                  className="flex items-center gap-4 p-4 rounded-2xl border dark:border-white/5 border-black/5 dark:bg-white/[0.02] bg-black/[0.02]"
+                  className="flex items-center gap-4 p-4 rounded-2xl border border-border bg-card"
                 >
                   <div className="w-10 h-10 rounded-full gradient-brand flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
                     {member.avatar}
@@ -171,7 +171,7 @@ export default function SettingsPage() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <p className="text-sm font-semibold text-foreground truncate">{integration.name}</p>
-                    <span className="text-[9px] font-semibold px-2 py-0.5 rounded-full dark:bg-white/5 bg-black/5 text-muted-foreground border dark:border-white/5 border-black/5">
+                    <span className="text-[9px] font-semibold px-2 py-0.5 rounded-full bg-muted/30 text-muted-foreground border border-border">
                       {integration.category}
                     </span>
                   </div>

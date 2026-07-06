@@ -81,11 +81,11 @@ export default function DashboardPage() {
         </div>
 
         <div className="flex items-center gap-3">
-          <button className="flex items-center gap-2 px-4 py-2 rounded-xl border dark:border-white/8 border-black/5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-all">
+          <button className="flex items-center gap-2 px-4 py-2 rounded-xl border border-border text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-all">
             <RefreshCw className="w-3.5 h-3.5" />
             Refresh
           </button>
-          <button className="flex items-center gap-2 px-4 py-2 rounded-xl border dark:border-white/8 border-black/5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-all">
+          <button className="flex items-center gap-2 px-4 py-2 rounded-xl border border-border text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-all">
             <Download className="w-3.5 h-3.5" />
             Export
           </button>
@@ -99,7 +99,7 @@ export default function DashboardPage() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="col-span-12 md:col-span-4 lg:col-span-3 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6 flex flex-col items-center justify-center gap-4 relative overflow-hidden"
+          className="col-span-12 md:col-span-4 lg:col-span-3 rounded-2xl border border-border bg-card p-6 flex flex-col items-center justify-center gap-4 relative overflow-hidden"
         >
           <div className="absolute inset-0 gradient-hero opacity-50 pointer-events-none" />
           <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-cyan-500/5 blur-3xl pointer-events-none" />
@@ -122,7 +122,7 @@ export default function DashboardPage() {
                 { label: "Response Rate", value: "87%" },
                 { label: "Velocity", value: kpi.reviewVelocity },
               ].map((item) => (
-                <div key={item.label} className="rounded-xl dark:bg-white/3 bg-black/3 border dark:border-white/5 border-black/5 px-3 py-2">
+                <div key={item.label} className="rounded-xl bg-muted/40 border border-border px-3 py-2">
                   <p className="text-[10px] text-muted-foreground">{item.label}</p>
                   <p className="text-sm font-bold text-foreground">{item.value}</p>
                 </div>
@@ -197,7 +197,7 @@ export default function DashboardPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35 }}
-          className="col-span-12 lg:col-span-8 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 lg:col-span-8 rounded-2xl border border-border bg-card p-6"
         >
           <div className="flex items-center justify-between mb-6">
             <div>
@@ -248,7 +248,7 @@ export default function DashboardPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="col-span-12 lg:col-span-4 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 lg:col-span-4 rounded-2xl border border-border bg-card p-6"
         >
           <div className="mb-4">
             <h3 className="text-sm font-semibold text-foreground">Patient Sentiment</h3>
@@ -303,7 +303,7 @@ export default function DashboardPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45 }}
-          className="col-span-12 lg:col-span-5 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 lg:col-span-5 rounded-2xl border border-border bg-card p-6"
         >
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
@@ -332,7 +332,7 @@ export default function DashboardPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="col-span-12 lg:col-span-4 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 lg:col-span-4 rounded-2xl border border-border bg-card p-6"
         >
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
@@ -384,7 +384,7 @@ export default function DashboardPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55 }}
-          className="col-span-12 lg:col-span-3 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 lg:col-span-3 rounded-2xl border border-border bg-card p-6"
         >
           <div className="flex items-center justify-between mb-4">
             <div>
@@ -403,7 +403,7 @@ export default function DashboardPage() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 * i }}
-                className="rounded-xl border dark:border-white/5 border-black/5 dark:bg-white/[0.02] bg-black/[0.02] p-3"
+                className="rounded-xl border border-border bg-card p-3"
               >
                 <div className="flex items-start justify-between gap-2">
                   <p className="text-xs font-semibold text-foreground leading-snug flex-1 min-w-0 truncate">
@@ -443,7 +443,7 @@ export default function DashboardPage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
-        className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+        className="rounded-2xl border border-border bg-card p-6"
       >
         <h3 className="text-sm font-semibold text-foreground mb-4">Quick Actions</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">

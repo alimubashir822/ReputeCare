@@ -78,7 +78,7 @@ export default function AIInsightsPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="col-span-12 lg:col-span-5 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 lg:col-span-5 rounded-2xl border border-border bg-card p-6"
         >
           <h3 className="text-sm font-semibold text-foreground mb-4">Agent Activity Feed</h3>
           <div className="space-y-4">
@@ -120,7 +120,7 @@ export default function AIInsightsPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25 }}
-          className="col-span-12 lg:col-span-7 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 lg:col-span-7 rounded-2xl border border-border bg-card p-6"
         >
           <h3 className="text-sm font-semibold text-foreground mb-4">Active Recommendations</h3>
           <div className="space-y-3">
@@ -136,7 +136,7 @@ export default function AIInsightsPage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+        className="rounded-2xl border border-border bg-card p-6"
       >
         <h3 className="text-sm font-semibold text-foreground mb-4">AI-Estimated Reputation ROI</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

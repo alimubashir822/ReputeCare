@@ -39,7 +39,7 @@ export default function AnalyticsPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1 + 0.05 * i }}
-              className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-5"
+              className="rounded-2xl border border-border bg-card p-5"
             >
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">{period.period}</p>
               <div className="grid grid-cols-3 gap-3 text-center">
@@ -74,7 +74,7 @@ export default function AnalyticsPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="col-span-12 lg:col-span-6 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 lg:col-span-6 rounded-2xl border border-border bg-card p-6"
         >
           <div className="flex items-center gap-2 mb-4">
             <Search className="w-4 h-4 text-cyan-400" />
@@ -123,7 +123,7 @@ export default function AnalyticsPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25 }}
-          className="col-span-12 lg:col-span-6 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 lg:col-span-6 rounded-2xl border border-border bg-card p-6"
         >
           <h3 className="text-sm font-semibold text-foreground mb-4">Referral Funnel</h3>
           <div className="space-y-3">
@@ -160,7 +160,7 @@ export default function AnalyticsPage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+        className="rounded-2xl border border-border bg-card p-6"
       >
         <h3 className="text-sm font-semibold text-foreground mb-4">Provider Performance Leaderboard</h3>
         <div className="space-y-3">
@@ -170,7 +170,7 @@ export default function AnalyticsPage() {
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.05 * i }}
-              className="flex items-center gap-4 p-4 rounded-2xl border dark:border-white/5 border-black/5 dark:bg-white/[0.02] bg-black/[0.02]"
+              className="flex items-center gap-4 p-4 rounded-2xl border border-border bg-card"
             >
               <div className="text-lg font-black text-muted-foreground/30 w-6 text-center">{i + 1}</div>
               <div className="w-10 h-10 rounded-full gradient-brand flex items-center justify-center text-white text-xs font-bold flex-shrink-0">

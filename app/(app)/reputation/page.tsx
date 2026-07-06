@@ -44,25 +44,25 @@ export default function ReputationPage() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="col-span-12 md:col-span-4 lg:col-span-3 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6 flex flex-col items-center gap-4 relative overflow-hidden"
+          className="col-span-12 md:col-span-4 lg:col-span-3 rounded-2xl border border-border bg-card p-6 flex flex-col items-center gap-4 relative overflow-hidden"
         >
           <div className="absolute inset-0 gradient-hero opacity-40 pointer-events-none" />
           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Overall Reputation</p>
           <ReputationScoreRing score={mockReputation.overallScore} size={140} delay={0.3} label="Score" sublabel="Excellent" />
           <div className="w-full grid grid-cols-2 gap-2 text-center text-xs">
-            <div className="rounded-xl dark:bg-white/3 bg-black/3 border dark:border-white/5 border-black/5 p-2">
+            <div className="rounded-xl bg-muted/40 border border-border p-2">
               <p className="text-muted-foreground">Rating</p>
               <p className="font-bold text-yellow-400">{mockReputation.overallRating}★</p>
             </div>
-            <div className="rounded-xl dark:bg-white/3 bg-black/3 border dark:border-white/5 border-black/5 p-2">
+            <div className="rounded-xl bg-muted/40 border border-border p-2">
               <p className="text-muted-foreground">Reviews</p>
               <p className="font-bold text-foreground">{mockReputation.totalReviews.toLocaleString()}</p>
             </div>
-            <div className="rounded-xl dark:bg-white/3 bg-black/3 border dark:border-white/5 border-black/5 p-2">
+            <div className="rounded-xl bg-muted/40 border border-border p-2">
               <p className="text-muted-foreground">Response Rate</p>
               <p className="font-bold text-emerald-400">{mockReputation.responseRate}%</p>
             </div>
-            <div className="rounded-xl dark:bg-white/3 bg-black/3 border dark:border-white/5 border-black/5 p-2">
+            <div className="rounded-xl bg-muted/40 border border-border p-2">
               <p className="text-muted-foreground">Avg Response</p>
               <p className="font-bold text-foreground">{mockReputation.avgResponseTime}</p>
             </div>
@@ -79,7 +79,7 @@ export default function ReputationPage() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + i * 0.05 }}
-                className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-4 card-hover cursor-pointer group"
+                className="rounded-2xl border border-border bg-card p-4 card-hover cursor-pointer group"
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className="w-8 h-8 rounded-xl flex items-center justify-center text-white text-sm font-bold" style={{ background: platform.color }}>
@@ -114,7 +114,7 @@ export default function ReputationPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="col-span-12 lg:col-span-4 rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+          className="col-span-12 lg:col-span-4 rounded-2xl border border-border bg-card p-6"
         >
           <h3 className="text-sm font-semibold text-foreground mb-1">Reputation Dimensions</h3>
           <p className="text-xs text-muted-foreground mb-4">6-axis reputation analysis</p>
@@ -133,7 +133,7 @@ export default function ReputationPage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35 }}
-        className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+        className="rounded-2xl border border-border bg-card p-6"
       >
         <div className="flex items-center justify-between mb-6">
           <div>
@@ -169,7 +169,7 @@ export default function ReputationPage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+        className="rounded-2xl border border-border bg-card p-6"
       >
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-sm font-semibold text-foreground">Competitor Overview</h3>

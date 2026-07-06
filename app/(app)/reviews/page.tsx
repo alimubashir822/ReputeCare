@@ -77,7 +77,7 @@ export default function ReviewsPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 * i }}
-            className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-4"
+            className="rounded-2xl border border-border bg-card p-4"
           >
             <p className="text-xs text-muted-foreground">{stat.label}</p>
             <p className={cn("text-3xl font-bold mt-1", stat.color)}>{stat.value}</p>
@@ -90,7 +90,7 @@ export default function ReviewsPage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6"
+        className="rounded-2xl border border-border bg-card p-6"
       >
         <div className="flex items-center justify-between mb-4">
           <div className="flex gap-1 p-1 rounded-xl bg-muted">
@@ -109,7 +109,7 @@ export default function ReviewsPage() {
               </button>
             ))}
           </div>
-          <button className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground px-3 py-1.5 rounded-xl border dark:border-white/8 border-black/5 transition-colors">
+          <button className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground px-3 py-1.5 rounded-xl border border-border transition-colors">
             <Filter className="w-3 h-3" /> Filter
           </button>
         </div>
@@ -121,7 +121,7 @@ export default function ReviewsPage() {
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.04 * i }}
-              className="flex items-center gap-4 p-4 rounded-2xl border dark:border-white/5 border-black/5 dark:bg-white/[0.02] bg-black/[0.02] hover:border-cyan-500/20 transition-all group"
+              className="flex items-center gap-4 p-4 rounded-2xl border border-border bg-card hover:border-cyan-500/20 transition-all group"
             >
               {/* Avatar */}
               <div className="w-10 h-10 rounded-full gradient-brand flex items-center justify-center text-white text-sm font-bold flex-shrink-0">

@@ -45,7 +45,7 @@ export default function CampaignsPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 * i }}
-              className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-4"
+              className="rounded-2xl border border-border bg-card p-4"
             >
               <div className="flex items-center gap-2 mb-2">
                 <Icon className={cn("w-4 h-4", stat.color)} />
@@ -65,7 +65,7 @@ export default function CampaignsPage() {
             onClick={() => setFilter(f)}
             className={cn(
               "px-4 py-2 rounded-xl text-xs font-semibold transition-all",
-              filter === f ? "gradient-brand text-white" : "border dark:border-white/8 border-black/5 text-muted-foreground hover:text-foreground"
+              filter === f ? "gradient-brand text-white" : "border border-border text-muted-foreground hover:text-foreground"
             )}
           >
             {f.charAt(0).toUpperCase() + f.slice(1)}
@@ -81,7 +81,7 @@ export default function CampaignsPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.06 * i }}
-            className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-5 card-hover cursor-pointer group"
+            className="rounded-2xl border border-border bg-card p-5 card-hover cursor-pointer group"
           >
             {/* Header */}
             <div className="flex items-start justify-between mb-4">
@@ -129,7 +129,7 @@ export default function CampaignsPage() {
                 { label: "Opened", value: `${Math.round((campaign.opened / campaign.sent) * 100)}%` },
                 { label: "Converted", value: `${campaign.conversionRate.toFixed(1)}%` },
               ].map((stat) => (
-                <div key={stat.label} className="rounded-xl dark:bg-white/3 bg-black/3 border dark:border-white/5 border-black/5 py-2">
+                <div key={stat.label} className="rounded-xl bg-muted/40 border border-border py-2">
                   <p className="text-xs font-bold text-foreground">{stat.value}</p>
                   <p className="text-[10px] text-muted-foreground mt-0.5">{stat.label}</p>
                 </div>
@@ -159,7 +159,7 @@ export default function CampaignsPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.06 * displayed.length }}
-          className="rounded-2xl border-2 border-dashed dark:border-white/10 border-black/10 p-5 flex flex-col items-center justify-center gap-3 cursor-pointer hover:border-cyan-500/30 transition-colors group"
+          className="rounded-2xl border-2 border-dashed border-border p-5 flex flex-col items-center justify-center gap-3 cursor-pointer hover:border-cyan-500/30 transition-colors group"
         >
           <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
             <Plus className="w-5 h-5 text-cyan-400" />
