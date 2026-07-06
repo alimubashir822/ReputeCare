@@ -55,7 +55,7 @@ export default function SettingsPage() {
       {/* Organization Tab */}
       {activeTab === 0 && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
-          <div className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6">
+          <div className="rounded-2xl border border-border bg-card p-6">
             <h3 className="text-sm font-semibold text-foreground mb-4">Organization Details</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
@@ -68,7 +68,7 @@ export default function SettingsPage() {
                   <label className="text-xs font-semibold text-muted-foreground mb-1.5 block">{field.label}</label>
                   <input
                     defaultValue={field.value}
-                    className="w-full px-4 py-2.5 rounded-xl border dark:border-white/8 border-black/5 dark:bg-white/5 bg-black/5 text-sm text-foreground outline-none focus:border-cyan-500/30 transition-colors"
+                    className="w-full px-4 py-2.5 rounded-xl border border-border bg-muted/30 text-sm text-foreground outline-none focus:border-cyan-500/30 transition-colors"
                   />
                 </div>
               ))}
@@ -78,7 +78,7 @@ export default function SettingsPage() {
             </button>
           </div>
 
-          <div className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6">
+          <div className="rounded-2xl border border-border bg-card p-6">
             <div className="flex items-center gap-2 mb-4">
               <Shield className="w-4 h-4 text-emerald-400" />
               <h3 className="text-sm font-semibold text-foreground">HIPAA Compliance</h3>
@@ -110,7 +110,7 @@ export default function SettingsPage() {
       {/* Team Tab */}
       {activeTab === 1 && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-          <div className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6">
+          <div className="rounded-2xl border border-border bg-card p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-sm font-semibold text-foreground">Team Members</h3>
               <button className="flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 px-3 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 transition-colors">
@@ -163,7 +163,7 @@ export default function SettingsPage() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.04 * i }}
-                className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-5 flex items-center gap-4"
+                className="rounded-2xl border border-border bg-card p-5 flex items-center gap-4"
               >
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style={{ background: integration.color }}>
                   {integration.icon}
@@ -194,7 +194,7 @@ export default function SettingsPage() {
       {/* Audit Log Tab */}
       {activeTab === 5 && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-          <div className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-6">
+          <div className="rounded-2xl border border-border bg-card p-6">
             <h3 className="text-sm font-semibold text-foreground mb-4">Audit Log</h3>
             <div className="overflow-x-auto">
               <table className="w-full data-table">
@@ -227,7 +227,7 @@ export default function SettingsPage() {
       {/* Placeholder for other tabs */}
       {(activeTab === 3 || activeTab === 4) && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-          <div className="rounded-2xl border dark:border-white/8 border-black/5 dark:bg-white/[0.03] bg-white p-12 text-center">
+          <div className="rounded-2xl border border-border bg-card p-12 text-center">
             <div className="w-12 h-12 rounded-2xl bg-muted mx-auto flex items-center justify-center mb-4">
               {activeTab === 3 ? <Bell className="w-6 h-6 text-muted-foreground" /> : <Key className="w-6 h-6 text-muted-foreground" />}
             </div>

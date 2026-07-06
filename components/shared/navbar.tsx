@@ -186,9 +186,9 @@ export function Navbar({ onCommandPalette, onMenuToggle }: NavbarProps) {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 8, scale: 0.95 }}
                 transition={{ duration: 0.15 }}
-                className="absolute right-0 top-12 w-52 rounded-2xl border dark:border-white/10 border-black/5 dark:bg-slate-900/95 bg-white/95 backdrop-blur-xl shadow-2xl overflow-hidden z-50"
+                className="absolute right-0 top-12 w-52 rounded-2xl border border-border bg-card/95 backdrop-blur-xl shadow-2xl overflow-hidden z-50"
               >
-                <div className="px-4 py-3 border-b dark:border-white/8 border-black/5">
+                <div className="px-4 py-3 border-b border-border">
                   <p className="text-sm font-semibold text-foreground">Alexandra Hart</p>
                   <p className="text-xs text-muted-foreground">admin@healthfirst.com</p>
                   <div className="mt-1.5 flex items-center gap-1">
@@ -203,7 +203,7 @@ export function Navbar({ onCommandPalette, onMenuToggle }: NavbarProps) {
                   <a href="/settings" className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-muted text-sm text-foreground transition-colors">
                     <Settings className="w-4 h-4 text-muted-foreground" />Settings
                   </a>
-                  <hr className="my-1 dark:border-white/8 border-black/5" />
+                  <hr className="my-1 border-border" />
                   <button className="w-full flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-red-500/10 text-sm text-red-400 transition-colors">
                     <LogOut className="w-4 h-4" />Sign Out
                   </button>
