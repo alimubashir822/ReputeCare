@@ -7,9 +7,10 @@ import {
   Activity, Star, Brain, Zap, MessageSquare, BarChart3,
   MapPin, Users, TrendingUp, Target, Megaphone, Shield,
   CheckCircle, ArrowRight, Sparkles, ChevronDown,
-  Globe, Lock, Cpu, HeartPulse
+  Globe, Lock, Cpu, HeartPulse, Sun, Moon
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/components/providers/theme-provider";
 
 const features = [
   {
@@ -189,6 +190,7 @@ function AnimatedCounter({ target, suffix }: { target: string; suffix: string })
 
 export default function LandingPage() {
   const [statsVisible, setStatsVisible] = useState(false);
+  const { theme, toggle } = useTheme();
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
@@ -208,6 +210,19 @@ export default function LandingPage() {
         </div>
 
         <div className="flex items-center gap-3">
+          {/* Theme Toggle */}
+          <button
+            onClick={toggle}
+            className="p-2 rounded-xl dark:bg-white/5 bg-black/5 hover:bg-muted transition-colors mr-1"
+            title="Toggle theme"
+          >
+            {theme === "dark" ? (
+              <Sun className="w-4 h-4 text-muted-foreground" />
+            ) : (
+              <Moon className="w-4 h-4 text-muted-foreground" />
+            )}
+          </button>
+
           <Link href="/login" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             Sign In
           </Link>
